@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { Mail, Send, CheckCircle2 } from "lucide-react";
+import { SpotlightCard } from "@/components/animations/SpotlightCard";
+import { FadeUp } from "@/components/animations/FadeUp";
 
 function GithubIcon(props: React.SVGProps<SVGSVGElement>) {
     return (
@@ -55,7 +57,7 @@ export function ContactSection() {
     return (
         <section id="contact" className="py-24 border-t border-white/10 relative">
             <div className="mx-auto max-w-4xl px-6">
-                <div className="text-center max-w-xl mx-auto">
+                <FadeUp delay={0.1} className="text-center max-w-xl mx-auto">
                     <span className="font-mono text-xs uppercase tracking-widest text-emerald-400">
                         Get In Touch
                     </span>
@@ -65,12 +67,12 @@ export function ContactSection() {
                     <p className="mt-4 text-sm sm:text-base text-zinc-400 leading-relaxed">
                         Have a project in mind, an engineering role, or an inquiry? Send a message directly.
                     </p>
-                </div>
+                </FadeUp>
 
-                <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <FadeUp delay={0.2} className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
                     {/* Contact Direct Info */}
                     <div className="flex flex-col gap-4">
-                        <div className="rounded-xl border border-white/10 bg-zinc-900/40 p-5 backdrop-blur-sm">
+                        <SpotlightCard className="rounded-xl border border-white/10 bg-zinc-900/40 p-5 backdrop-blur-sm">
                             <div className="flex items-center gap-3 text-zinc-300 mb-2">
                                 <Mail className="h-5 w-5 text-emerald-400" />
                                 <span className="text-xs font-mono uppercase tracking-wider text-zinc-500">Contact Details</span>
@@ -93,9 +95,9 @@ export function ContactSection() {
                             <p className="text-sm text-zinc-400">
                                 154st, Tamwe, Yangon
                             </p>
-                        </div>
+                        </SpotlightCard>
 
-                        <div className="rounded-xl border border-white/10 bg-zinc-900/40 p-5 backdrop-blur-sm">
+                        <SpotlightCard className="rounded-xl border border-white/10 bg-zinc-900/40 p-5 backdrop-blur-sm">
                             <span className="text-xs font-mono uppercase tracking-wider text-zinc-500">Profiles</span>
                             <div className="mt-3 flex items-center gap-4">
                                 <a
@@ -117,11 +119,11 @@ export function ContactSection() {
                                     LinkedIn
                                 </a>
                             </div>
-                        </div>
+                        </SpotlightCard>
                     </div>
 
                     {/* Quick Message Form */}
-                    <div className="md:col-span-2 rounded-xl border border-white/10 bg-zinc-900/40 p-6 backdrop-blur-sm">
+                    <SpotlightCard className="md:col-span-2 rounded-xl border border-white/10 bg-zinc-900/40 p-6 backdrop-blur-sm">
                         {submitted ? (
                             <div className="flex flex-col items-center justify-center py-12 text-center">
                                 <CheckCircle2 className="h-10 w-10 text-emerald-400" />
@@ -147,7 +149,7 @@ export function ContactSection() {
                                         id="name"
                                         required
                                         placeholder="Your Name"
-                                        className="w-full rounded-lg border border-white/10 bg-black/50 px-4 py-2.5 text-sm text-white placeholder-zinc-600 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 transition"
+                                        className="w-full rounded-lg border border-white/10 bg-black/50 px-4 py-2.5 text-sm text-white placeholder-zinc-600 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 transition relative z-20"
                                     />
                                 </div>
 
@@ -160,7 +162,7 @@ export function ContactSection() {
                                         id="email"
                                         required
                                         placeholder="you@domain.com"
-                                        className="w-full rounded-lg border border-white/10 bg-black/50 px-4 py-2.5 text-sm text-white placeholder-zinc-600 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 transition"
+                                        className="w-full rounded-lg border border-white/10 bg-black/50 px-4 py-2.5 text-sm text-white placeholder-zinc-600 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 transition relative z-20"
                                     />
                                 </div>
 
@@ -173,21 +175,21 @@ export function ContactSection() {
                                         required
                                         rows={4}
                                         placeholder="What would you like to discuss?"
-                                        className="w-full rounded-lg border border-white/10 bg-black/50 px-4 py-2.5 text-sm text-white placeholder-zinc-600 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 transition resize-none"
+                                        className="w-full rounded-lg border border-white/10 bg-black/50 px-4 py-2.5 text-sm text-white placeholder-zinc-600 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 transition resize-none relative z-20"
                                     />
                                 </div>
 
                                 <button
                                     type="submit"
-                                    className="inline-flex items-center justify-center gap-2 w-full rounded-lg bg-emerald-500 px-5 py-2.5 text-sm font-semibold text-zinc-950 transition hover:bg-emerald-400 active:scale-[0.99]"
+                                    className="inline-flex items-center justify-center gap-2 w-full rounded-lg bg-emerald-500 px-5 py-2.5 text-sm font-semibold text-zinc-950 transition hover:bg-emerald-400 active:scale-[0.99] relative z-20"
                                 >
                                     <Send className="h-4 w-4" />
                                     <span>Send Message</span>
                                 </button>
                             </form>
                         )}
-                    </div>
-                </div>
+                    </SpotlightCard>
+                </FadeUp>
             </div>
         </section>
     );

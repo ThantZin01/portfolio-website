@@ -55,7 +55,6 @@ export const projectsData: Project[] = [
         techStack: ["Tech 1", "Tech 2"],
         liveUrl: "",
         githubUrl: "",
-        imageUrls: ["/images/grokroast.jpg"],
         featured: true,
     },
 ];

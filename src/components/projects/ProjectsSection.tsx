@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { Project, projectsData } from "@/data/projects";
 import { ExternalLink, Layers, Sparkles } from "lucide-react";
+import { projectsData, Project } from "@/data/projects";
+import { SpotlightCard } from "@/components/animations/SpotlightCard";
+import { FadeUp } from "@/components/animations/FadeUp";
 
 function GithubIcon(props: React.SVGProps<SVGSVGElement>) {
     return (
@@ -45,7 +47,7 @@ function ProjectCard({ project }: { project: Project }) {
     };
 
     return (
-        <div className="group flex flex-col justify-between rounded-xl border border-white/10 bg-zinc-900/40 p-6 backdrop-blur-sm transition hover:border-emerald-500/40 hover:bg-zinc-900/70">
+        <SpotlightCard className="group flex flex-col justify-between p-6 transition hover:border-emerald-500/40">
             <div>
                 {/* Project Image Area */}
                 {hasValidImage ? (
@@ -113,8 +115,9 @@ function ProjectCard({ project }: { project: Project }) {
                 ) : (
                     <div className="relative mb-6 w-full h-48 rounded-lg overflow-hidden border border-white/10 bg-gradient-to-br from-zinc-800 to-zinc-950 flex flex-col items-center justify-center group/placeholder">
                         <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
-                        <Sparkles className="h-8 w-8 text-emerald-500/40 mb-3 group-hover/placeholder:scale-110 group-hover/placeholder:text-emerald-400 transition duration-500 z-10" />
-                        <span className="font-mono text-sm tracking-widest text-zinc-500 group-hover/placeholder:text-emerald-300 transition z-10">{project.title.substring(0, 3).toUpperCase()}</span>
+                        <Sparkles className="h-6 w-6 text-emerald-500/40 mb-2 group-hover/placeholder:scale-110 group-hover/placeholder:text-emerald-400 transition duration-500 z-10" />
+                        <span className="font-mono text-sm tracking-widest text-zinc-500 group-hover/placeholder:text-emerald-300 transition z-10 mb-1">{project.title.substring(0, 3).toUpperCase()}</span>
+                        <span className="font-mono text-[10px] text-zinc-600 uppercase tracking-widest z-10 group-hover/placeholder:text-emerald-500/60 transition">No Image Available</span>
                     </div>
                 )}
                 
@@ -181,7 +184,7 @@ function ProjectCard({ project }: { project: Project }) {
                     )}
                 </div>
             </div>
-        </div>
+        </SpotlightCard>
     );
 }
 
@@ -195,9 +198,8 @@ export function ProjectsSection() {
     return (
         <section id="projects" className="py-24 border-t border-white/10 relative">
             <div className="mx-auto max-w-6xl px-6">
-
                 {/* Section Header */}
-                <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+                <FadeUp delay={0.1} className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
                     <div>
                         <div className="flex items-center gap-1.5 font-mono text-xs uppercase tracking-widest text-emerald-400">
                             <Sparkles className="h-3 w-3" />
@@ -226,15 +228,14 @@ export function ProjectsSection() {
                             );
                         })}
                     </div>
-                </div>
+                </FadeUp>
 
                 {/* Project Cards Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <FadeUp delay={0.2} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {filteredProjects.map((project) => (
                         <ProjectCard key={project.id} project={project} />
                     ))}
-                </div>
-
+                </FadeUp>
             </div>
         </section>
     );
