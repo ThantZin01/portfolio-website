@@ -71,23 +71,35 @@ export function ContactSection() {
                     {/* Contact Direct Info */}
                     <div className="flex flex-col gap-4">
                         <div className="rounded-xl border border-white/10 bg-zinc-900/40 p-5 backdrop-blur-sm">
-                            <div className="flex items-center gap-3 text-zinc-300">
+                            <div className="flex items-center gap-3 text-zinc-300 mb-2">
                                 <Mail className="h-5 w-5 text-emerald-400" />
-                                <span className="text-xs font-mono uppercase tracking-wider text-zinc-500">Email</span>
+                                <span className="text-xs font-mono uppercase tracking-wider text-zinc-500">Contact Details</span>
                             </div>
+                            
                             <a
-                                href="mailto:contact@example.com"
-                                className="mt-2 block text-sm font-medium text-white hover:text-emerald-400 transition truncate"
+                                href="mailto:thantzinphyo.business77@gmail.com"
+                                className="block text-sm font-medium text-white hover:text-emerald-400 transition truncate mb-2"
                             >
-                                contact@example.com
+                                thantzinphyo.business77@gmail.com
                             </a>
+                            
+                            <a
+                                href="tel:+959897632233"
+                                className="block text-sm text-zinc-400 hover:text-emerald-400 transition mb-2"
+                            >
+                                +959 897632233
+                            </a>
+
+                            <p className="text-sm text-zinc-400">
+                                154st, Tamwe, Yangon
+                            </p>
                         </div>
 
                         <div className="rounded-xl border border-white/10 bg-zinc-900/40 p-5 backdrop-blur-sm">
                             <span className="text-xs font-mono uppercase tracking-wider text-zinc-500">Profiles</span>
                             <div className="mt-3 flex items-center gap-4">
                                 <a
-                                    href="https://github.com"
+                                    href="https://github.com/ThantZin01"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="flex items-center gap-1.5 text-xs text-zinc-300 hover:text-white transition"

@@ -27,46 +27,94 @@ const CATEGORIES = ["All", "Full-Stack", "AI & Systems", "3D & Web"] as const;
 
 function ProjectCard({ project }: { project: Project }) {
     const [imageIndex, setImageIndex] = useState(0);
+    const [animatingOut, setAnimatingOut] = useState(false);
+    const [imageError, setImageError] = useState(false);
+
     const hasMultipleImages = project.imageUrls && project.imageUrls.length > 1;
+    const hasValidImage = project.imageUrls && project.imageUrls.length > 0 && !imageError;
+
+    const handleNext = (e: React.MouseEvent) => {
+        e.preventDefault();
+        if (animatingOut || !hasMultipleImages) return;
+        
+        setAnimatingOut(true);
+        setTimeout(() => {
+            setImageIndex((prev) => (prev + 1) % project.imageUrls!.length);
+            setAnimatingOut(false);
+        }, 300);
+    };
 
     return (
         <div className="group flex flex-col justify-between rounded-xl border border-white/10 bg-zinc-900/40 p-6 backdrop-blur-sm transition hover:border-emerald-500/40 hover:bg-zinc-900/70">
             <div>
-                {/* Project Image */}
-                {project.imageUrls && project.imageUrls.length > 0 && (
-                    <div className="relative mb-6 w-full h-48 rounded-lg overflow-hidden border border-white/10 group/image">
-                        <img 
-                            src={project.imageUrls[imageIndex]} 
-                            alt={project.title} 
-                            className="w-full h-full object-cover group-hover:scale-105 transition duration-500" 
-                        />
+                {/* Project Image Area */}
+                {hasValidImage ? (
+                    <div 
+                        className="relative mb-6 w-full h-48 rounded-lg cursor-pointer group/image"
+                        onClick={handleNext}
+                    >
+                        {project.imageUrls!.map((url, i) => {
+                            let pos = (i - imageIndex + project.imageUrls!.length) % project.imageUrls!.length;
+                            const isFront = pos === 0;
+                            const isAnimating = isFront && animatingOut;
+
+                            let translateX = "0%";
+                            let translateY = "0px";
+                            let rotate = "0deg";
+                            let scale = 1 - pos * 0.05;
+                            let opacity = 1 - pos * 0.3;
+                            let zIndex = 40 - pos;
+
+                            if (isAnimating) {
+                                translateX = "30%";
+                                translateY = "-10px";
+                                rotate = "8deg";
+                                scale = 0.9;
+                                opacity = 0; 
+                                zIndex = 50; 
+                            } else if (pos > 0) {
+                                translateY = `${pos * 8}px`;
+                                translateX = `${pos * 4}px`; 
+                            }
+
+                            if (pos > 2 && !isAnimating) return null; 
+
+                            return (
+                                <img 
+                                    key={url}
+                                    src={url}
+                                    alt={project.title}
+                                    onError={() => setImageError(true)}
+                                    className="absolute inset-0 w-full h-full object-cover object-top rounded-lg border border-white/10 transition-all duration-300 ease-out shadow-xl"
+                                    style={{
+                                        transform: `translateX(${translateX}) translateY(${translateY}) scale(${scale}) rotate(${rotate})`,
+                                        opacity: opacity,
+                                        zIndex: zIndex,
+                                        transformOrigin: "bottom center"
+                                    }}
+                                />
+                            );
+                        })}
+
                         {hasMultipleImages && (
-                            <div className="absolute inset-0 flex items-center justify-between p-2 opacity-0 group-hover/image:opacity-100 transition-opacity">
-                                <button 
-                                    onClick={(e) => { 
-                                        e.preventDefault(); 
-                                        setImageIndex((prev) => (prev - 1 + project.imageUrls!.length) % project.imageUrls!.length); 
-                                    }}
-                                    className="bg-black/50 hover:bg-black/80 text-white rounded-full p-1.5 backdrop-blur-sm transition z-10"
-                                >
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
-                                </button>
-                                <button 
-                                    onClick={(e) => { 
-                                        e.preventDefault(); 
-                                        setImageIndex((prev) => (prev + 1) % project.imageUrls!.length); 
-                                    }}
-                                    className="bg-black/50 hover:bg-black/80 text-white rounded-full p-1.5 backdrop-blur-sm transition z-10"
-                                >
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
-                                </button>
+                            <div className="absolute inset-0 z-50 flex items-center justify-center opacity-0 group-hover/image:opacity-100 transition-opacity pointer-events-none">
+                                <div className="bg-black/60 text-white font-mono text-xs px-3 py-1.5 rounded-full backdrop-blur-sm transform transition group-hover/image:scale-105">
+                                    Click to flip
+                                </div>
                             </div>
                         )}
+                        
                         {hasMultipleImages && (
-                            <div className="absolute bottom-2 right-2 bg-black/60 backdrop-blur-sm text-white text-[10px] px-2 py-0.5 rounded-full font-mono z-10">
+                            <div className="absolute bottom-2 right-2 bg-black/60 backdrop-blur-sm text-white text-[10px] px-2 py-0.5 rounded-full font-mono z-50 pointer-events-none">
                                 {imageIndex + 1} / {project.imageUrls!.length}
                             </div>
                         )}
+                    </div>
+                ) : (
+                    <div className="relative mb-6 w-full h-48 rounded-lg overflow-hidden border border-white/10 bg-gradient-to-br from-zinc-800 to-zinc-950 flex flex-col items-center justify-center group/placeholder">
+                        <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
+                        <Sparkles className="h-8 w-8 text-emerald-500/40 mb-3 group-hover/placeholder:scale-110 group-hover/placeholder:text-emerald-400 transition duration-500 z-10" />
+                        <span className="font-mono text-sm tracking-widest text-zinc-500 group-hover/placeholder:text-emerald-300 transition z-10">{project.title.substring(0, 3).toUpperCase()}</span>
                     </div>
                 )}
                 
