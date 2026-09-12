@@ -22,37 +22,51 @@ function GithubIcon(props: React.SVGProps<SVGSVGElement>) {
 
 export function Navbar() {
     return (
-        <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-[#090a0f]/80 backdrop-blur-md">
-            <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-                {/* Logo */}
-                <Link href="/" className="flex items-center gap-2 font-mono text-sm tracking-wider font-semibold text-white">
-                    <Terminal className="h-4 w-4 text-emerald-400" />
-                    <span>PORTFOLIO<span className="text-emerald-400">.</span></span>
-                </Link>
-
-                {/* Links */}
-                <nav className="flex items-center gap-8 text-sm font-medium text-zinc-400">
-                    <Link href="#projects" className="transition-colors hover:text-white">
-                        Projects
+        <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-zinc-950/60 backdrop-blur-xl">
+            <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 relative">
+                
+                {/* Logo - Left */}
+                <div className="flex-1 flex justify-start">
+                    <Link href="/" className="flex items-center gap-2 font-mono text-sm tracking-wider font-semibold text-white group">
+                        <Terminal className="h-4 w-4 text-amber-500 group-hover:text-amber-400 transition-colors" />
+                        <span>PORTFOLIO<span className="text-amber-500">.</span></span>
                     </Link>
-                    <Link href="#contact" className="transition-colors hover:text-white">
+                </div>
+
+                {/* Links - Center */}
+                <nav className="hidden md:flex items-center justify-center gap-8 text-sm font-medium text-zinc-400">
+                    <Link href="/" className="relative group px-1 py-2 transition-colors hover:text-white">
+                        Home
+                        <span className="absolute bottom-0 left-0 w-full h-[2px] bg-amber-500 scale-x-0 group-hover:scale-x-100 transition-transform origin-left rounded-full" />
+                    </Link>
+                    <Link href="/#experience" className="relative group px-1 py-2 transition-colors hover:text-white">
+                        Experience
+                        <span className="absolute bottom-0 left-0 w-full h-[2px] bg-amber-500 scale-x-0 group-hover:scale-x-100 transition-transform origin-left rounded-full" />
+                    </Link>
+                    <Link href="/#projects" className="relative group px-1 py-2 transition-colors hover:text-white">
+                        Projects
+                        <span className="absolute bottom-0 left-0 w-full h-[2px] bg-amber-500 scale-x-0 group-hover:scale-x-100 transition-transform origin-left rounded-full" />
+                    </Link>
+                    <Link href="/#contact" className="relative group px-1 py-2 transition-colors hover:text-white">
                         Contact
+                        <span className="absolute bottom-0 left-0 w-full h-[2px] bg-amber-500 scale-x-0 group-hover:scale-x-100 transition-transform origin-left rounded-full" />
                     </Link>
                 </nav>
 
-                {/* Right side status badge */}
-                <div className="flex items-center gap-4">
+                {/* Right side - Status & Social */}
+                <div className="flex-1 flex items-center justify-end gap-4">
                     <a
-                        href="https://github.com"
+                        href="https://github.com/ThantZin01"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-zinc-400 transition-colors hover:text-white"
+                        className="text-zinc-400 transition-colors hover:text-white p-2 hover:bg-white/5 rounded-lg"
                     >
                         <GithubIcon className="h-4 w-4" />
                     </a>
-                    <div className="hidden sm:flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3 py-1 text-xs text-emerald-400 font-mono">
-                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                        24/7 Live
+                    <div className="flex items-center gap-2 rounded-full border border-amber-500/20 bg-amber-500/10 px-3 py-1.5 text-xs text-amber-400 font-mono shadow-[0_0_15px_rgba(245,158,11,0.1)]">
+                        <span className="h-1.5 w-1.5 rounded-full bg-amber-400 animate-pulse shadow-[0_0_8px_rgba(245,158,11,0.8)]" />
+                        <span className="hidden sm:inline">24/7 Live</span>
+                        <span className="sm:hidden">Live</span>
                     </div>
                 </div>
             </div>
