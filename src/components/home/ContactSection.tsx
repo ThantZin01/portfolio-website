@@ -56,8 +56,8 @@ export function ContactSection() {
         const form = e.currentTarget;
         const formData = new FormData(form);
         
-        // IMPORTANT: Replace this with your actual Web3Forms access key
-        formData.append("access_key", "YOUR_WEB3FORMS_ACCESS_KEY_HERE");
+        // Web3Forms access key
+        formData.append("access_key", "2bacfff1-23eb-40ee-b3dc-d92161a015b6");
 
         try {
             const response = await fetch("https://api.web3forms.com/submit", {
@@ -100,14 +100,14 @@ export function ContactSection() {
                                 <Mail className="h-5 w-5 text-amber-500" />
                                 <span className="text-xs font-mono uppercase tracking-wider text-slate-400">Contact Details</span>
                             </div>
-                            
+
                             <a
                                 href="mailto:thantzinphyo.business77@gmail.com"
                                 className="block text-sm font-medium text-white hover:text-amber-400 transition truncate mb-2"
                             >
                                 thantzinphyo.business77@gmail.com
                             </a>
-                            
+
                             <a
                                 href="tel:+959897632233"
                                 className="block text-sm text-slate-400 hover:text-amber-400 transition mb-2"
