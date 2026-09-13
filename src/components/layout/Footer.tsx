@@ -43,7 +43,7 @@ function LinkedinIcon(props: React.SVGProps<SVGSVGElement>) {
 
 export function Footer() {
     return (
-        <footer className="relative border-t border-white/10 bg-zinc-950 pt-16 pb-8 overflow-hidden">
+        <footer className="relative border-t border-white/10 bg-zinc-950 pt-12 md:pt-16 pb-24 md:pb-8 overflow-hidden">
             {/* Glowing top line */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-[1px] bg-gradient-to-r from-transparent via-amber-500/50 to-transparent" />
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/4 h-[3px] bg-gradient-to-r from-transparent via-amber-500/50 to-transparent blur-sm" />
@@ -52,7 +52,7 @@ export function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8 mb-16">
                     
                     {/* Brand Column */}
-                    <div className="md:col-span-2 space-y-4">
+                    <div className="md:col-span-2 space-y-4 flex flex-col items-center md:items-start text-center md:text-left">
                         <Link href="/" className="flex items-center gap-2 font-mono text-sm tracking-wider font-semibold text-white w-fit">
                             <Terminal className="h-5 w-5 text-amber-500" />
                             <span>PORTFOLIO<span className="text-amber-500">.</span></span>
@@ -63,9 +63,9 @@ export function Footer() {
                     </div>
 
                     {/* Quick Links */}
-                    <div className="space-y-4">
+                    <div className="space-y-4 flex flex-col items-center md:items-start">
                         <h4 className="text-white font-semibold mb-4">Navigation</h4>
-                        <nav className="flex flex-col gap-2 text-sm text-zinc-400">
+                        <nav className="flex flex-col gap-2 text-sm text-zinc-400 items-center md:items-start">
                             <Link href="/#projects" className="hover:text-amber-400 transition-colors w-fit">Projects</Link>
                             <Link href="/#experience" className="hover:text-amber-400 transition-colors w-fit">Experience</Link>
                             <Link href="/#contact" className="hover:text-amber-400 transition-colors w-fit">Contact</Link>
@@ -73,7 +73,7 @@ export function Footer() {
                     </div>
 
                     {/* Social Links */}
-                    <div className="space-y-4">
+                    <div className="space-y-4 flex flex-col items-center md:items-start">
                         <h4 className="text-white font-semibold mb-4">Connect</h4>
                         <div className="flex items-center gap-4">
                             <a href="https://github.com/ThantZin01" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-zinc-900 border border-white/10 text-zinc-400 hover:text-amber-400 hover:border-amber-500/30 transition-all">

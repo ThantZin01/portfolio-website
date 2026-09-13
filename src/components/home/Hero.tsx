@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export function Hero() {
     return (
-        <section className="relative overflow-hidden py-24 md:py-32">
+        <section className="relative overflow-hidden py-16 md:py-32">
             <div className="relative mx-auto max-w-5xl px-6">
                 
                 {/* Bento Grid Container */}
@@ -23,7 +23,7 @@ export function Hero() {
                         </FadeUp>
 
                         <FadeUp delay={0.2}>
-                            <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl md:leading-tight">
+                            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white md:leading-tight">
                                 Hi, I&apos;m <span className="text-amber-400 whitespace-nowrap">Thant Zin Phyo</span><br/>
                                 Building practical, scalable applications.
                             </h1>
@@ -72,7 +72,10 @@ export function Hero() {
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-transparent to-transparent" />
                                     <div className="absolute bottom-4 left-4 right-4 text-center">
-                                        <span className="text-xs font-medium uppercase tracking-widest text-zinc-300 bg-zinc-950/60 px-3 py-1 rounded-full backdrop-blur-md">Hover Me</span>
+                                        <span className="text-xs font-medium uppercase tracking-widest text-zinc-300 bg-zinc-950/60 px-3 py-1 rounded-full backdrop-blur-md">
+                                            <span className="hidden sm:inline">Hover Me</span>
+                                            <span className="sm:hidden">Tap Me</span>
+                                        </span>
                                     </div>
                                 </div>
 

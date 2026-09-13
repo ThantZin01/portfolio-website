@@ -78,7 +78,7 @@ export function ContactSection() {
     };
 
     return (
-        <section id="contact" className="py-24 border-t border-white/10 relative">
+        <section id="contact" className="py-16 md:py-24 border-t border-white/10 relative">
             <div className="mx-auto max-w-4xl px-6">
                 <FadeUp delay={0.1} className="text-center max-w-xl mx-auto">
                     <span className="font-mono text-xs uppercase tracking-widest text-amber-400">
@@ -173,7 +173,7 @@ export function ContactSection() {
                                         name="name"
                                         required
                                         placeholder="Your Name"
-                                        className="w-full rounded-lg border border-white/10 bg-[#09090b]/80 px-4 py-2.5 text-sm text-white placeholder-slate-600 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500 transition relative z-20"
+                                        className="w-full rounded-lg border border-white/10 bg-[#09090b]/80 px-4 py-3 text-base text-white placeholder-slate-600 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500 transition relative z-20"
                                     />
                                 </div>
 
@@ -187,7 +187,7 @@ export function ContactSection() {
                                         name="email"
                                         required
                                         placeholder="you@domain.com"
-                                        className="w-full rounded-lg border border-white/10 bg-[#09090b]/80 px-4 py-2.5 text-sm text-white placeholder-slate-600 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500 transition relative z-20"
+                                        className="w-full rounded-lg border border-white/10 bg-[#09090b]/80 px-4 py-3 text-base text-white placeholder-slate-600 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500 transition relative z-20"
                                     />
                                 </div>
 
@@ -201,14 +201,14 @@ export function ContactSection() {
                                         required
                                         rows={4}
                                         placeholder="What would you like to discuss?"
-                                        className="w-full rounded-lg border border-white/10 bg-[#09090b]/80 px-4 py-2.5 text-sm text-white placeholder-slate-600 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500 transition resize-none relative z-20"
+                                        className="w-full rounded-lg border border-white/10 bg-[#09090b]/80 px-4 py-3 text-base text-white placeholder-slate-600 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500 transition resize-none relative z-20"
                                     />
                                 </div>
 
                                 <button
                                     type="submit"
                                     disabled={isSubmitting}
-                                    className="inline-flex items-center justify-center gap-2 w-full rounded-lg bg-amber-500 px-5 py-2.5 text-sm font-semibold text-[#09090b] transition hover:bg-amber-400 active:scale-[0.99] disabled:opacity-70 disabled:cursor-not-allowed relative z-20 shadow-[0_0_15px_rgba(245,158,11,0.3)]"
+                                    className="inline-flex items-center justify-center gap-2 w-full rounded-lg bg-amber-500 px-5 py-3 text-base md:text-sm font-semibold text-[#09090b] transition hover:bg-amber-400 active:scale-[0.99] disabled:opacity-70 disabled:cursor-not-allowed relative z-20 shadow-[0_0_15px_rgba(245,158,11,0.3)]"
                                 >
                                     <Send className="h-4 w-4" />
                                     <span>{isSubmitting ? "Sending..." : "Send Message"}</span>

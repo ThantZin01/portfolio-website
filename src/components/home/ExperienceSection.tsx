@@ -52,7 +52,7 @@ export function ExperienceSection() {
   const glowOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 0.5]);
 
   return (
-    <section id="experience" className="py-24 border-t border-white/10 relative" ref={containerRef}>
+    <section id="experience" className="py-16 md:py-24 border-t border-white/10 relative" ref={containerRef}>
       <div className="mx-auto max-w-6xl px-6 relative">
         <FadeUp delay={0.1}>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-20 text-center relative z-20">
@@ -90,7 +90,7 @@ export function ExperienceSection() {
                     />
                     
                     <FadeUp delay={0.1 * index}>
-                        <div className="p-6 rounded-3xl bg-slate-900/40 border border-white/5 backdrop-blur-md shadow-xl hover:border-amber-500/30 transition-all duration-500 relative group overflow-hidden hover:-translate-y-2">
+                        <div className="p-5 md:p-6 rounded-3xl bg-slate-900/40 border border-white/5 backdrop-blur-md shadow-xl hover:border-amber-500/30 transition-all duration-500 relative group overflow-hidden hover:-translate-y-2">
                             <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                             <div className="relative z-10">
                                 <div className="flex items-center gap-3 mb-2">
@@ -142,7 +142,7 @@ export function ExperienceSection() {
                     />
 
                     <FadeUp delay={0.1 * index}>
-                        <div className="p-6 rounded-3xl bg-slate-900/40 border border-white/5 backdrop-blur-md shadow-xl hover:border-amber-500/30 transition-all duration-500 relative group overflow-hidden hover:-translate-y-2">
+                        <div className="p-5 md:p-6 rounded-3xl bg-slate-900/40 border border-white/5 backdrop-blur-md shadow-xl hover:border-amber-500/30 transition-all duration-500 relative group overflow-hidden hover:-translate-y-2">
                             <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                             <div className="relative z-10">
                                 <div className="flex items-center gap-3 mb-2">

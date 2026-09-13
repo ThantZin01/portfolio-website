@@ -100,9 +100,10 @@ function ProjectCard({ project }: { project: Project }) {
                         })}
 
                         {hasMultipleImages && (
-                            <div className="absolute inset-0 z-50 flex items-center justify-center opacity-0 group-hover/image:opacity-100 transition-opacity pointer-events-none">
+                            <div className="absolute inset-0 z-50 flex items-center justify-center opacity-100 md:opacity-0 group-hover/image:opacity-100 transition-opacity pointer-events-none">
                                 <div className="bg-black/60 text-white font-mono text-xs px-3 py-1.5 rounded-full backdrop-blur-sm transform transition group-hover/image:scale-105">
-                                    Click to flip
+                                    <span className="hidden md:inline">Click to flip</span>
+                                    <span className="md:hidden">Tap to flip</span>
                                 </div>
                             </div>
                         )}
@@ -205,7 +206,7 @@ export function ProjectsSection() {
     );
 
     return (
-        <section id="projects" className="py-24 border-t border-white/10 relative">
+        <section id="projects" className="py-16 md:py-24 border-t border-white/10 relative">
             <div className="mx-auto max-w-6xl px-6">
                 {/* Section Header */}
                 <FadeUp delay={0.1} className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
