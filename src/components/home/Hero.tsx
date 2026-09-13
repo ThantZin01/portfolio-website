@@ -1,9 +1,13 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import { ArrowRight, Code2, Sparkles, MapPin, Mail, Globe } from "lucide-react";
 import { FadeUp } from "@/components/animations/FadeUp";
 import { motion } from "framer-motion";
 
 export function Hero() {
+    const [isFlipped, setIsFlipped] = useState(false);
     return (
         <section className="relative overflow-hidden py-16 md:py-32">
             <div className="relative mx-auto max-w-5xl px-6">
@@ -61,7 +65,10 @@ export function Hero() {
                         
                         {/* Profile 3D Flip Card */}
                         <FadeUp delay={0.3} className="h-[280px] w-full [perspective:1000px] group">
-                            <div className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] cursor-pointer">
+                            <div 
+                                className={`relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] cursor-pointer ${isFlipped ? '[transform:rotateY(180deg)]' : 'group-hover:[transform:rotateY(180deg)]'}`}
+                                onClick={() => setIsFlipped(!isFlipped)}
+                            >
                                 
                                 {/* Front: Real Photo */}
                                 <div className="absolute inset-0 w-full h-full rounded-3xl overflow-hidden border border-white/5 bg-zinc-900/40 backdrop-blur-md [backface-visibility:hidden]">
