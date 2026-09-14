@@ -4,7 +4,25 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowRight, Code2, Sparkles, MapPin, Mail, Globe } from "lucide-react";
 import { FadeUp } from "@/components/animations/FadeUp";
-import { motion } from "framer-motion";
+
+function GithubIcon(props: React.SVGProps<SVGSVGElement>) {
+    return (
+        <svg
+            {...props}
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        >
+            <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.02c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A4.8 4.8 0 0 0 8 18v4" />
+        </svg>
+    );
+}
 
 export function Hero() {
     const [isFlipped, setIsFlipped] = useState(false);
@@ -22,7 +40,7 @@ export function Hero() {
                         <FadeUp delay={0.1}>
                             <div className="inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-3.5 py-1 text-xs font-mono text-amber-400 mb-8">
                                 <Sparkles className="h-3.5 w-3.5" />
-                                <span>Software Engineer</span>
+                                <span>Full Stack Developer | AI & Automation</span>
                             </div>
                         </FadeUp>
 
@@ -35,7 +53,7 @@ export function Hero() {
 
                         <FadeUp delay={0.3}>
                             <p className="mt-6 max-w-xl text-base sm:text-lg text-zinc-400 leading-relaxed">
-                                Software Engineer with hands-on experience designing, developing, and deploying complete software solutions for clients. Skilled across frontend, backend, databases, APIs, AI integration, and automation.
+                                Building production-ready web applications, business systems, and AI-powered automation for real-world clients.
                             </p>
                         </FadeUp>
 
@@ -45,9 +63,19 @@ export function Hero() {
                                     href="#projects"
                                     className="inline-flex items-center gap-2 rounded-xl bg-amber-500 px-6 py-3.5 text-sm font-bold text-zinc-950 transition hover:bg-amber-400 active:scale-95 shadow-lg shadow-amber-500/20"
                                 >
-                                    <span>Explore Projects</span>
+                                    <span>View Projects</span>
                                     <ArrowRight className="h-4 w-4" />
                                 </Link>
+
+                                <a
+                                    href="https://github.com/ThantZin01"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-6 py-3.5 text-sm font-semibold text-zinc-300 backdrop-blur-sm transition hover:border-white/20 hover:bg-white/10 hover:text-white active:scale-95"
+                                >
+                                    <GithubIcon className="h-4 w-4 text-amber-400" />
+                                    <span>GitHub</span>
+                                </a>
 
                                 <Link
                                     href="#contact"

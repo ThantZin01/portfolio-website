@@ -85,7 +85,7 @@ export function ContactSection() {
                         Get In Touch
                     </span>
                     <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white mt-2">
-                        Let&apos;s build something resilient.
+                        Have a project in mind?
                     </h2>
                     <p className="mt-4 text-sm sm:text-base text-zinc-400 leading-relaxed">
                         Have a project in mind, an engineering role, or an inquiry? Send a message directly.

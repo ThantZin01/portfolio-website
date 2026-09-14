@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 function Embers() {
-  const [particles, setParticles] = useState<Array<{ id: number; x: number; y: number; size: number; duration: number, delay: number }>>([]);
+  const [particles, setParticles] = useState<Array<{ id: number; x: number; y: number; size: number; duration: number, delay: number, xOffset: number }>>([]);
 
   useEffect(() => {
     // Generate random particles (embers) on client-side to avoid hydration mismatch
@@ -15,7 +15,9 @@ function Embers() {
       size: Math.random() * 2 + 1,
       duration: Math.random() * 15 + 15,
       delay: Math.random() * 10,
+      xOffset: Math.random() * 40 - 20,
     }));
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setParticles(generated);
   }, []);
 
@@ -28,7 +30,7 @@ function Embers() {
           style={{ width: p.size, height: p.size, left: `${p.x}%`, bottom: `-${p.y}%` }}
           animate={{
             y: ["0vh", "-120vh"],
-            x: [0, Math.random() * 40 - 20, 0],
+            x: [0, p.xOffset, 0],
             opacity: [0, 0.8, 0],
           }}
           transition={{
@@ -47,6 +49,7 @@ export function AnimatedBackground() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
   }, []);
 

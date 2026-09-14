@@ -10,14 +10,14 @@ const experienceData = [
     title: "Software Engineer",
     company: "Areative Digital",
     date: "July 2026 - Current",
-    description: "Developing and deploying complete software solutions, focusing on scalable architecture and seamless user experiences.",
+    description: "Designing and implementing scalable full-stack applications, robust databases, and business automation systems for production environments.",
     icon: <Briefcase className="h-5 w-5 text-amber-500" />,
   },
   {
-    title: "Software Engineer",
+    title: "Full Stack Developer",
     company: "Freelancer",
     date: "Dec 2024 - Current",
-    description: "Working directly with clients to build custom frontend and backend systems, REST APIs, and automating business workflows.",
+    description: "Delivered 20+ client projects within a recent 3-month period. Specialized in custom business systems, POS platforms, e-commerce, and AI workflow automation.",
     icon: <Briefcase className="h-5 w-5 text-amber-500" />,
   },
 ];
@@ -98,7 +98,14 @@ export function ExperienceSection() {
                                         {item.icon}
                                     </div>
                                     <div>
-                                        <h4 className="text-lg font-bold text-white group-hover:text-amber-400 transition-colors">{item.title}</h4>
+                                        <h4 className="text-lg font-bold text-white group-hover:text-amber-400 transition-colors flex items-center gap-2">
+                                            {item.title}
+                                            {item.company === "Freelancer" && (
+                                                <span className="inline-flex items-center rounded-full bg-amber-500/10 px-2 py-0.5 text-[10px] font-semibold text-amber-500 border border-amber-500/20">
+                                                    20+ Projects Delivered
+                                                </span>
+                                            )}
+                                        </h4>
                                         <span className="text-sm font-medium text-amber-500/80">{item.company}</span>
                                     </div>
                                 </div>

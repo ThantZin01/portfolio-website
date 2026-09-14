@@ -26,7 +26,7 @@ function GithubIcon(props: React.SVGProps<SVGSVGElement>) {
     );
 }
 
-const CATEGORIES = ["All", "Full-Stack", "AI & Systems", "3D & Web"] as const;
+const CATEGORIES = ["All", "Full-Stack", "Business Systems", "AI & Systems", "3D & Web"] as const;
 
 function ProjectCard({ project }: { project: Project }) {
     const [imageIndex, setImageIndex] = useState(0);
@@ -57,7 +57,7 @@ function ProjectCard({ project }: { project: Project }) {
                         onClick={handleNext}
                     >
                         {project.imageUrls!.map((url, i) => {
-                            let pos = (i - imageIndex + project.imageUrls!.length) % project.imageUrls!.length;
+                            const pos = (i - imageIndex + project.imageUrls!.length) % project.imageUrls!.length;
                             const isFront = pos === 0;
                             const isAnimating = isFront && animatingOut;
 
@@ -215,9 +215,15 @@ export function ProjectsSection() {
                             <Sparkles className="h-3 w-3" />
                             <span>Production Work</span>
                         </div>
-                        <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white mt-2">
-                            Featured Projects
+                        <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white mt-2 flex items-center gap-3">
+                            Selected Client Projects
+                            <span className="hidden md:inline-flex items-center rounded-full bg-amber-500/10 px-3 py-1 text-xs font-semibold text-amber-500 border border-amber-500/20">
+                                20+ Delivered
+                            </span>
                         </h2>
+                        <span className="md:hidden mt-3 inline-flex items-center rounded-full bg-amber-500/10 px-3 py-1 text-xs font-semibold text-amber-500 border border-amber-500/20">
+                            20+ Delivered
+                        </span>
                     </div>
 
                     {/* Category Filter Pills */}

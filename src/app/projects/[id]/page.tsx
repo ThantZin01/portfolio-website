@@ -51,9 +51,18 @@ export default async function ProjectDetailPage({ params }: PageProps) {
             {project.title}
           </h1>
           <p className="text-xl text-amber-400 font-mono mb-6">{project.tagline}</p>
-          <p className="text-lg text-zinc-300 max-w-3xl leading-relaxed">
+          <p className="text-lg text-zinc-300 max-w-3xl leading-relaxed mb-6">
             {project.overview}
           </p>
+
+          {project.myContribution && (
+            <div className="bg-amber-500/10 border border-amber-500/20 rounded-xl p-4 max-w-3xl mb-6">
+              <h3 className="text-sm font-semibold text-amber-400 mb-2 font-mono uppercase tracking-wider">My Contribution</h3>
+              <p className="text-zinc-300 text-sm leading-relaxed">
+                {project.myContribution}
+              </p>
+            </div>
+          )}
           
           <div className="flex flex-wrap gap-4 mt-8">
             {project.githubUrl && (

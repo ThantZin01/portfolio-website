@@ -16,6 +16,7 @@ export interface ProjectDetail {
   codeExplanation: string;
   githubUrl?: string;
   liveUrl?: string;
+  myContribution: string;
 }
 
 export const projectDetails: Record<string, ProjectDetail> = {
@@ -102,7 +103,8 @@ export async function createOrder(data: OrderInput) {
 The UI is fully responsive, built with Tailwind CSS. It uses CSS Grid for the POS layout, allowing cashiers to quickly access categories and menu items on touch devices.
     `,
     githubUrl: "https://github.com/ThantZin01/morning-haze-pos",
-    liveUrl: ""
+    liveUrl: "",
+    myContribution: "Full-stack development, database architecture (Prisma/PostgreSQL), secure RBAC implementation, UI/UX design, and Next.js Server Actions integration."
   },
   "dormitory-management-system": {
     id: "dormitory-management-system",
@@ -171,7 +173,8 @@ export const auth = betterAuth({
 By utilizing \`@neondatabase/serverless\` alongside Prisma's driver adapters, the application achieves extremely fast database connections in a serverless environment, drastically reducing cold start latency.
     `,
     githubUrl: "https://github.com/ThantZin01/dms-system",
-    liveUrl: ""
+    liveUrl: "",
+    myContribution: "Full-stack development, authentication (Better Auth), database architecture (Neon Postgres), automated allocation logic, and responsive dashboard design."
   },
   "grokroast": {
     id: "grokroast",
@@ -242,6 +245,7 @@ export const speakCritique = (text: string, mode: "roast" | "boost", onEnd: () =
 \`\`\`
     `,
     githubUrl: "https://github.com/ThantZin01/GrokRoast",
-    liveUrl: ""
+    liveUrl: "",
+    myContribution: "3D scene implementation (React Three Fiber), AI response integration, Web Speech API audio synthesis, and complex UI animations."
   }
 };
