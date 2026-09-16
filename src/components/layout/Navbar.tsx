@@ -1,3 +1,6 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Terminal, Home, Briefcase, Layers, Mail } from "lucide-react";
 
@@ -21,6 +24,37 @@ function GithubIcon(props: React.SVGProps<SVGSVGElement>) {
 }
 
 export function Navbar() {
+    const [activeSection, setActiveSection] = useState("home");
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const sections = ["home", "experience", "projects", "contact"];
+            const scrollPosition = window.scrollY + 200; // offset for navbar height
+
+            if (window.scrollY < 100) {
+                setActiveSection("home");
+                return;
+            }
+
+            for (const section of sections) {
+                const element = document.getElementById(section);
+                if (element) {
+                    const offsetTop = element.offsetTop;
+                    const offsetHeight = element.offsetHeight;
+
+                    if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+                        setActiveSection(section);
+                    }
+                }
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        // Call once on mount
+        handleScroll();
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
     return (
         <>
             {/* Desktop Top Navbar */}
@@ -37,21 +71,21 @@ export function Navbar() {
 
                     {/* Links - Center (Hidden on mobile) */}
                     <nav className="hidden md:flex items-center justify-center gap-8 text-sm font-medium text-zinc-400">
-                        <Link href="/" className="relative group px-1 py-2 transition-colors hover:text-white">
+                        <Link href="/#home" className={`relative group px-1 py-2 transition-colors ${activeSection === 'home' ? 'text-white' : 'hover:text-white'}`}>
                             Home
-                            <span className="absolute bottom-0 left-0 w-full h-[2px] bg-amber-500 scale-x-0 group-hover:scale-x-100 transition-transform origin-left rounded-full" />
+                            <span className={`absolute bottom-0 left-0 w-full h-[2px] bg-amber-500 transition-transform origin-left rounded-full ${activeSection === 'home' ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`} />
                         </Link>
-                        <Link href="/#experience" className="relative group px-1 py-2 transition-colors hover:text-white">
+                        <Link href="/#experience" className={`relative group px-1 py-2 transition-colors ${activeSection === 'experience' ? 'text-white' : 'hover:text-white'}`}>
                             Experience
-                            <span className="absolute bottom-0 left-0 w-full h-[2px] bg-amber-500 scale-x-0 group-hover:scale-x-100 transition-transform origin-left rounded-full" />
+                            <span className={`absolute bottom-0 left-0 w-full h-[2px] bg-amber-500 transition-transform origin-left rounded-full ${activeSection === 'experience' ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`} />
                         </Link>
-                        <Link href="/#projects" className="relative group px-1 py-2 transition-colors hover:text-white">
+                        <Link href="/#projects" className={`relative group px-1 py-2 transition-colors ${activeSection === 'projects' ? 'text-white' : 'hover:text-white'}`}>
                             Projects
-                            <span className="absolute bottom-0 left-0 w-full h-[2px] bg-amber-500 scale-x-0 group-hover:scale-x-100 transition-transform origin-left rounded-full" />
+                            <span className={`absolute bottom-0 left-0 w-full h-[2px] bg-amber-500 transition-transform origin-left rounded-full ${activeSection === 'projects' ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`} />
                         </Link>
-                        <Link href="/#contact" className="relative group px-1 py-2 transition-colors hover:text-white">
+                        <Link href="/#contact" className={`relative group px-1 py-2 transition-colors ${activeSection === 'contact' ? 'text-white' : 'hover:text-white'}`}>
                             Contact
-                            <span className="absolute bottom-0 left-0 w-full h-[2px] bg-amber-500 scale-x-0 group-hover:scale-x-100 transition-transform origin-left rounded-full" />
+                            <span className={`absolute bottom-0 left-0 w-full h-[2px] bg-amber-500 transition-transform origin-left rounded-full ${activeSection === 'contact' ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`} />
                         </Link>
                     </nav>
 
@@ -77,19 +111,19 @@ export function Navbar() {
             {/* Mobile Bottom Navigation Bar */}
             <div className="md:hidden fixed bottom-4 left-4 right-4 z-50">
                 <nav className="flex items-center justify-around bg-zinc-900/80 backdrop-blur-xl border border-white/10 rounded-2xl px-2 py-3 shadow-2xl">
-                    <Link href="/" className="flex flex-col items-center gap-1 p-2 text-zinc-400 hover:text-amber-400 transition-colors">
+                    <Link href="/#home" className={`flex flex-col items-center gap-1 p-2 transition-colors ${activeSection === 'home' ? 'text-amber-400' : 'text-zinc-400 hover:text-amber-400'}`}>
                         <Home className="h-5 w-5" />
                         <span className="text-[10px] font-medium">Home</span>
                     </Link>
-                    <Link href="/#experience" className="flex flex-col items-center gap-1 p-2 text-zinc-400 hover:text-amber-400 transition-colors">
+                    <Link href="/#experience" className={`flex flex-col items-center gap-1 p-2 transition-colors ${activeSection === 'experience' ? 'text-amber-400' : 'text-zinc-400 hover:text-amber-400'}`}>
                         <Briefcase className="h-5 w-5" />
                         <span className="text-[10px] font-medium">Experience</span>
                     </Link>
-                    <Link href="/#projects" className="flex flex-col items-center gap-1 p-2 text-zinc-400 hover:text-amber-400 transition-colors">
+                    <Link href="/#projects" className={`flex flex-col items-center gap-1 p-2 transition-colors ${activeSection === 'projects' ? 'text-amber-400' : 'text-zinc-400 hover:text-amber-400'}`}>
                         <Layers className="h-5 w-5" />
                         <span className="text-[10px] font-medium">Projects</span>
                     </Link>
-                    <Link href="/#contact" className="flex flex-col items-center gap-1 p-2 text-zinc-400 hover:text-amber-400 transition-colors">
+                    <Link href="/#contact" className={`flex flex-col items-center gap-1 p-2 transition-colors ${activeSection === 'contact' ? 'text-amber-400' : 'text-zinc-400 hover:text-amber-400'}`}>
                         <Mail className="h-5 w-5" />
                         <span className="text-[10px] font-medium">Contact</span>
                     </Link>

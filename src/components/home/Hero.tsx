@@ -27,7 +27,7 @@ function GithubIcon(props: React.SVGProps<SVGSVGElement>) {
 export function Hero() {
     const [isFlipped, setIsFlipped] = useState(false);
     return (
-        <section className="relative overflow-hidden py-16 md:py-32">
+        <section id="home" className="relative overflow-hidden py-16 md:py-32">
             <div className="relative mx-auto max-w-5xl px-6">
                 
                 {/* Bento Grid Container */}
