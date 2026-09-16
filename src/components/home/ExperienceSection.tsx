@@ -24,17 +24,17 @@ const experienceData = [
 
 const educationData = [
   {
-    title: "B.C.Sc (Software Engineering)",
-    company: "University of Information Technology (UIT)",
-    date: "Dec 2022 - Current",
-    description: "Focused on software engineering principles, algorithms, and system design.",
+    title: "HND in Computing (Level-5)",
+    company: "NiT College",
+    date: "2025-2026",
+    description: "Advanced studies in computing, focusing on software development and system architecture.",
     icon: <GraduationCap className="h-5 w-5 text-amber-500" />,
   },
   {
-    title: "Diploma in IT",
-    company: "NCC Education",
-    date: "March 2022 - March 2023",
-    description: "Foundational studies in networking, databases, and software development methodologies.",
+    title: "HND in Computing (Level-4)",
+    company: "iNet College",
+    date: "2024-2025",
+    description: "Foundational studies in computer science, software engineering, and core IT principles.",
     icon: <GraduationCap className="h-5 w-5 text-amber-500" />,
   },
 ];
