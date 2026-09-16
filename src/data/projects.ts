@@ -3,7 +3,7 @@ export interface Project {
     title: string;
     tagline: string;
     description: string;
-    category: "Full-Stack" | "AI & Systems" | "3D & Web" | "Business Systems";
+    category: "Full-Stack Development" | "AI & System";
     techStack: string[];
     liveUrl?: string;
     githubUrl?: string;
@@ -17,7 +17,7 @@ export const projectsData: Project[] = [
         title: "Dormitory Management System",
         tagline: "Multi-tenant student residence portal.",
         description: "Centralized administrative platform with role-based access control, automated student room allocation, and billing records.",
-        category: "Full-Stack",
+        category: "Full-Stack Development",
         techStack: ["Next.js", "Prisma", "Better Auth", "Tailwind CSS"],
         liveUrl: "", 
         githubUrl: "",
@@ -34,7 +34,7 @@ export const projectsData: Project[] = [
         title: "Morning Haze Cafe System",
         tagline: "Cloud-native Point of Sale system.",
         description: "High-throughput web POS built for real-time ordering, automated inventory deduction, and fast offline-first resilience.",
-        category: "Business Systems",
+        category: "Full-Stack Development",
         techStack: ["Next.js", "TypeScript", "PostgreSQL", "Tailwind CSS"],
         liveUrl: "",
         githubUrl: "",
@@ -51,7 +51,7 @@ export const projectsData: Project[] = [
         title: "GrokRoast",
         tagline: "AI-powered brutally honest feedback.",
         description: "An interactive, 3D web experience that leverages simulated AI to critique or praise your ideas with immersive graphics and audio.",
-        category: "3D & Web",
+        category: "AI & System",
         techStack: ["React", "Three.js", "Framer Motion", "Tailwind CSS"],
         liveUrl: "",
         githubUrl: "",

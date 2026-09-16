@@ -26,7 +26,7 @@ function GithubIcon(props: React.SVGProps<SVGSVGElement>) {
     );
 }
 
-const CATEGORIES = ["All", "Full-Stack", "Business Systems", "AI & Systems", "3D & Web"] as const;
+const CATEGORIES = ["All", "Full-Stack Development", "AI & System"] as const;
 
 function ProjectCard({ project }: { project: Project }) {
     const [imageIndex, setImageIndex] = useState(0);
